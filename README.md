@@ -1,12 +1,19 @@
-> ## ⚡ Fast-cadence, auto-updating build (aarch64-first)
+> ## ⚡ Claude Desktop for Fedora (x86_64 primary, aarch64/Asahi supported)
 >
-> This is a **fast-rebuild fork** of [`aaddrick/claude-desktop-debian`](https://github.com/aaddrick/claude-desktop-debian), tuned for **Fedora Asahi (Apple Silicon / `aarch64`)**:
+> This is a **Fedora-focused fork** of [`pjordanandrsn/claude-desktop-asahi`](https://github.com/pjordanandrsn/claude-desktop-asahi) that repackages the official Claude Desktop app as a native Fedora `.rpm`:
 >
-> - 🕐 **Rebuilt within ~1 hour** of every new Anthropic release (upstream's own check runs daily).
-> - 🤖 Ships a drop-in **`systemd` auto-updater** so your machine stays current hands-free → [`auto-update/`](auto-update/).
-> - 📦 Same `.rpm` / `.deb` / `.AppImage` artifacts — grab them from [Releases](../../releases).
+> - 🖥️ **Fedora x86_64 (`amd64`) is the primary target** — build with `./build.sh --build rpm` on Fedora and the arch/distro are auto-detected.
+> - 🍎 **aarch64 / Fedora Asahi (Apple Silicon) is still fully supported** — the upstream build system is unchanged, so both architectures build from the same script.
+> - 📦 Produces `.rpm` / `.deb` / `.AppImage` artifacts from the same build.
+> - 🤖 Ships a drop-in **`systemd` auto-updater** to stay current hands-free → [`auto-update/`](auto-update/).
 >
-> All credit for the build system goes to [@aaddrick](https://github.com/aaddrick) and contributors. The original documentation follows.
+> **Attribution & license.** This fork descends from a chain of upstream work, all of which deserves the credit for the build system:
+> [k3d3](https://github.com/k3d3/claude-desktop-linux-flake) →
+> [`aaddrick/claude-desktop-debian`](https://github.com/aaddrick/claude-desktop-debian) →
+> [`pjordanandrsn/claude-desktop-asahi`](https://github.com/pjordanandrsn/claude-desktop-asahi) →
+> **this repo** ([`AdamPippert/Claude-desktop-Fedora`](https://github.com/AdamPippert/Claude-desktop-Fedora)).
+> Like its parents, it is **dual-licensed under Apache-2.0 and MIT** — see [`LICENSE-APACHE`](LICENSE-APACHE) and [`LICENSE-MIT`](LICENSE-MIT).
+> Claude Desktop itself is a proprietary Anthropic application; this repo only repackages it. For official support, visit [Anthropic](https://www.anthropic.com).
 
 ---
 
@@ -149,7 +156,16 @@ Download the latest `.deb`, `.rpm`, or `.AppImage` from the [Releases page](http
 
 ### Building from Source
 
-See [docs/building.md](docs/building.md) for detailed build instructions.
+On **Fedora x86_64** (the primary target), the RPM builds with a single command — architecture and distro are auto-detected:
+
+```bash
+git clone https://github.com/AdamPippert/Claude-desktop-Fedora.git
+cd Claude-desktop-Fedora
+./build.sh --build rpm
+sudo dnf install -y ./claude-desktop-*.rpm
+```
+
+The same command works on **aarch64 / Fedora Asahi** — no extra flags are needed. See [docs/building.md](docs/building.md) for detailed build instructions, other formats (`.deb`, `.AppImage`, Nix), and options like `--exe` for a locally-downloaded installer.
 
 ## Configuration
 
