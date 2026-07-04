@@ -10,9 +10,8 @@ name: APT/DNF Repo Heartbeat
 # Worker isn't live yet. Once Phase 4a is done, the gate passes
 # and the full chain is exercised every day.
 
+# Fork note: upstream-only automation (upstream apt-repo infra; not applicable to a Fedora fork); manual-only on this fork.
 on:
-  schedule:
-    - cron: '0 12 * * *'  # daily noon UTC
   workflow_dispatch:
 
 permissions:

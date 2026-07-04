@@ -22,9 +22,8 @@ run-name: |
 # disabled when v2 took over production routing.
 # See docs/issue-triage/README.md.
 
+# Fork note: upstream-only automation (needs ANTHROPIC_API_KEY); manual-only on this fork.
 on:
-  issues:
-    types: [opened]
   workflow_dispatch:
     inputs:
       issue_number:

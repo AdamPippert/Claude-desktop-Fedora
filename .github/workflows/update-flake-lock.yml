@@ -1,7 +1,6 @@
 name: Update Flake Lock
+# Fork note: upstream-only automation (needs GH_PAT); manual-only on this fork.
 on:
-  schedule:
-    - cron: "0 2 * * 1"  # Monday 2 AM UTC
   workflow_dispatch:
 
 permissions:

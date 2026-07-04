@@ -11,6 +11,7 @@ run-name: |
 # investigation and label application, which still occasionally help
 # for backfilled issues the maintainer wants a second opinion on.
 
+# Fork note: upstream-only automation (needs ANTHROPIC_API_KEY); manual-only on this fork.
 on:
   workflow_dispatch:
     inputs:

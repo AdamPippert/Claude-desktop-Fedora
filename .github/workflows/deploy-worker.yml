@@ -1,12 +1,7 @@
 name: Deploy Worker
 
+# Fork note: upstream-only automation (needs CLOUDFLARE_*); manual-only on this fork.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'worker/**'
-      - '.github/workflows/deploy-worker.yml'
   workflow_dispatch:
 
 permissions:

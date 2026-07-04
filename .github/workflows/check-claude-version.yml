@@ -1,7 +1,6 @@
 name: Check Claude Desktop Version
+# Fork note: upstream-only automation (needs GH_PAT); manual-only on this fork.
 on:
-  schedule:
-    - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:
